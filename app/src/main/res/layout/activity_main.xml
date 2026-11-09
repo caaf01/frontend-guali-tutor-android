@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="6dp">
+
+    <!-- 1. BARRA DE MENÚ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <Button
+            android:id="@+id/btnLecciones"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Lecciones"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnConfiguracion"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Configuración"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnHistorial"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Historial"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnAyuda"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Ayuda"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <!-- 2. TÍTULO DE LECCIÓN ACTIVA -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:gravity="center"
+            android:text="LECCIÓN ACTIVA"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTituloLeccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="  leccion-01-hola-mundo"
+            android:textColor="#000000"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- CUERPO CENTRAL (COLUMNA IZQUIERDA Y COLUMNA DERECHA) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <!-- COLUMNA IZQUIERDA: PANEL DE LECCIÓN ACTIVA -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.45"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <!-- IMAGEN DE LA LECCIÓN -->
+            <ImageView
+                android:id="@+id/imgLeccion"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#F0F4F8"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="Imagen lección" />
+
+            <!-- DESCRIPCIÓN CON SCROLL -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.2"
+                android:layout_marginTop="4dp"
+                android:background="#FFFFFF"
+                android:padding="4dp">
+
+                <TextView
+                    android:id="@+id/tvDescripcionLeccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Descripción de la lección activa...\n\nEn esta lección aprenderás a escribir tu primer programa funcional en Java utilizando la estructura básica System.out.println()."
+                    android:textColor="#000000"
+                    android:textSize="11sp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- COLUMNA DERECHA: EDITOR + BOTONES + CONSOLA -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.55"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <!-- EDITOR DE CÓDIGO -->
+            <EditText
+                android:id="@+id/etEditorCodigo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:background="#FFFFFF"
+                android:fontFamily="monospace"
+                android:gravity="top|start"
+                android:hint="Editor de código"
+                android:padding="6dp"
+                android:text="public class Main {\n    public static void main(String[] args) {\n        System.out.println(&quot;Hola Mundo&quot;);\n    }\n}"
+                android:textColor="#000000"
+                android:textSize="11sp" />
+
+            <!-- BOTONES DE ACCIÓN (COMPILAR Y EJECUTAR) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <Button
+                    android:id="@+id/btnCompilar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="6dp"
+                    android:backgroundTint="#808080"
+                    android:text="Compilar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:id="@+id/btnEjecutar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:backgroundTint="#5CB85C"
+                    android:enabled="false"
+                    android:text="Ejecutar"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- PANEL DE CONSOLA -->
+            <TextView
+                android:id="@+id/tvConsola"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:fontFamily="monospace"
+                android:hint="Panel de consola"
+                android:padding="6dp"
+                android:textColor="#000000"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
